@@ -1,0 +1,49 @@
+{% extends "student/studentbase.html" %}
+{% block content %}
+
+<form method = "post">
+  {% csrf_token %}
+  <div class="form-group">
+    <label class="form-control-label">Sender</label>
+    <input required class = "form-control" readonly value="{{notification.sender}}">
+  </div>
+
+  <div class="form-group">
+    <label class="form-control-label">Recipient</label>
+    <input required class = "form-control" readonly value="{{notification.recipient}}">
+  </div>
+
+  <div class="form-group">
+    <label class="form-control-label">Message</label>
+    <input required class = "form-control" readonly value="{{notification.message}}">
+  </div>
+
+
+  <div class="form-group">
+    <label class="form-control-label">Read Date</label>
+    <input required class = "form-control" readonly value="{{notification.read_date}}">
+  </div>
+
+
+
+  <div class="form-group">
+    <label class="form-control-label">Reply</label>
+    <textarea cols="5" rows="7" required id="company" class="form-control" name="reply">
+    </textarea>
+  </div>
+
+  <div class="form-actions form-group">
+    <button type="submit" class = "btn btn-primary btn-sm">Submit</button>
+  </div>
+
+  {% for message in messages %}
+  <div class="alert alert_primary" role="alert">
+    {{message}}
+  </div>
+  {% endfor %}
+</form>
+
+</div>
+</div>
+</div>
+{% endblock %}

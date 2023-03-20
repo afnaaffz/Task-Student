@@ -1,0 +1,48 @@
+{% extends "student/studentbase.html" %}
+{% block content %}
+
+<div class="card" style="width: 70rem;">
+  <div class="card-body">
+    <h5 class="card-title">Complain View</h5>
+
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">SL</th>
+        <th scope="col">USER</th>
+      <th scope="col">SUBJECT</th>
+      <th scope="col"> DESCRIPTION</th>
+              <th scope="col"> TIME</th>
+      <th scope="col"> REPLY</th>
+
+    </tr>
+  </thead>
+  <tbody>
+      {% for i in data %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+              <td>{{i.user}}</td>
+      <td>{{i.subject}}</td>
+      <td>{{i.description}}</td>
+            <td>{{i.Time}}</td>
+       <td>
+        {% if i.reply == None %}
+           <p><i>No reply yet..</i></p>
+        {% else %}
+        {{i.reply}}
+        {% endif %}
+       </td>
+             <td><a href="{% url 'delete_complaint' i.id %}" class="btn btn-danger">DELETE</a> </td>
+          </tr>
+
+
+{% endfor %}
+  </tbody>
+  </table>
+
+{% endblock %}
+
+  </div>
+</div>
+

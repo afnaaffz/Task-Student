@@ -1,0 +1,49 @@
+{% extends "student/studentbase.html" %}
+{% block content %}
+
+<div class="card" style="width: 70rem;">
+  <div class="card-body">
+    <h5 class="card-title">View Student Notification</h5>
+
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">SL</th>
+      <th scope="col">SENDER</th>
+      <th scope="col"> RECIPIENT</th>
+              <th scope="col"> MESSAGE</th>
+      <th scope="col"> REPLY</th>
+              <th scope="col"> SENT DATE</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+      {% for i in data %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{i.sender}}</td>
+      <td>{{i.recipient}}</td>
+            <td>{{i.message}}</td>
+       <td>
+        {% if i.reply == None %}
+                      <a href = "{% url 'reply_notification' i.id %}">Reply Now</a>
+           {% else %}
+        {{i.reply}}
+        {% endif %}
+       </td>
+        <td>{{i.sent_date}}</td>
+
+          </tr>
+
+
+{% endfor %}
+  </tbody>
+  </table>
+
+{% endblock %}
+
+  </div>
+</div>
+

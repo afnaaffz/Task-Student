@@ -1,0 +1,15 @@
+{% extends "dash.html" %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<form method="POST">
+
+    {% csrf_token %}
+    {{form1|crispy}}
+    {{form2|crispy}}
+    <button type="submit" value="save the data" class="btn btn-primary">SUBMIT</button>
+</form>
+
+
+
+{% endblock %}

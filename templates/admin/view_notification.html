@@ -1,0 +1,49 @@
+{% extends "admin/adminbase.html" %}
+{% block content %}
+
+<div class="card" style="width: 70rem;">
+  <div class="card-body">
+    <h5 class="card-title">View Notification</h5>
+
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">SL</th>
+      <th scope="col">SENDER</th>
+      <th scope="col"> RECIPIENT</th>
+              <th scope="col"> MESSAGE</th>
+      <th scope="col"> READ DATE</th>
+              <th scope="col"> SENT DATE</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+      {% for i in data %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{i.sender}}</td>
+      <td>{{i.recipient}}</td>
+            <td>{{i.message}}</td>
+       <td>
+        {% if i.reply == None %}
+        <p><i>Not read notification yet..</i></p>
+        {% else %}
+        {{i.reply}}
+        {% endif %}
+       </td>
+        <td>{{i.sent_date}}</td>
+
+          </tr>
+
+
+{% endfor %}
+  </tbody>
+  </table>
+
+{% endblock %}
+
+  </div>
+</div>
+
