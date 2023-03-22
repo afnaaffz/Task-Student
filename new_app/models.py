@@ -35,10 +35,8 @@ class Notification(models.Model):
     sender = models.ForeignKey(Login, on_delete=models.CASCADE, null=True, related_name='sender_notification')
     recipient = models.ForeignKey(Login, on_delete=models.CASCADE, related_name='recipient_notification')
     message = models.TextField()
-    read_date = models.BooleanField(null=True,blank=True)
+    read_date = models.BooleanField(null=True, blank=True)
     sent_date = models.DateTimeField(auto_now_add=True)
-    reply = models.TextField(null=True,blank=True)
-
-
+    reply = models.TextField(null=True, blank=True)
 
 

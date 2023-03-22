@@ -4,9 +4,9 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 
 import Student
-from new_app.filters import NameFilter
 from new_app.forms import Login_Form, StudentRegisterForm, ComplaintForm, NotificationForm
 from new_app.models import StudentRegister, Complaint, Notification
+from.filters import NameFilter
 
 
 # Create your views here.
@@ -50,7 +50,7 @@ def students_data(request):
         'nameFilter': nameFilter
 
     }
-    return render(request,"admin/students_data.html",{'data':data})
+    return render(request,"admin/students_data.html",context)
 
 @login_required(login_url = 'login_page')
 def view(request):
